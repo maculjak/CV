@@ -1,0 +1,145 @@
+\documentclass[10pt,A4]{article}	
+\usepackage[utf8]{inputenc}
+\usepackage{xstring, xifthen}
+\usepackage[default]{raleway}
+\renewcommand*\familydefault{\sfdefault} 	
+\usepackage[T1]{fontenc}
+\usepackage{moresize}
+\usepackage{fontawesome5}
+\newcommand{\vcenteredinclude}[1]{\begingroup
+\setbox0=\hbox{\includegraphics{#1}}
+\parbox{\wd0}{\box0}\endgroup}
+\usepackage{multicol}
+
+
+\newcommand*{\vcenteredhbox}[1]{\begingroup
+\setbox0=\hbox{#1}\parbox{\wd0}{\box0}\endgroup}
+
+% icon shortcut
+\newcommand{\icon}[3] { 							
+	\makebox(#2, #2){\textcolor{white}{\csname fa#1\endcsname}}
+}	
+
+\newcommand{\icontext}[4]{ 						
+	\vcenteredhbox{\icon{#1}{#2}{#3}} \textcolor{#4}{#3} \hspace{8pt}
+}
+
+\newcommand{\iconhref}[5]{ 						
+    \vcenteredhbox{\icon{#1}{#2}{#5}} \href{#4}{\textcolor{#5}{#3}} \hspace{8pt}
+}
+
+\newcommand{\iconemail}[4]{ 						
+    \vcenteredhbox{\icon{\faIcon{envelope}}{#1}{#4}} \href{mailto:#3}{\textcolor{#4}{#2}} \hspace{8pt}
+}
+
+\newcommand{\icongithub}[4]{
+    \vcenteredhbox{\icon{\faIcon{github}}{#1}{#4}} \href{https://www.github.com/#2}{\textcolor{#4}{#2}} \hspace{8pt}
+}
+
+\newcommand{\iconlinkedin}[5]{ 						
+    \vcenteredhbox{\icon{#1}{#2}{#5}} \href{https://www.linkedin.com/in/#4}{\textcolor{#5}{#3}} \hspace{8pt}
+}
+
+
+\newcommand{\cvsection}[1] {
+	\cvtext{
+		\textbf{\Large{\textcolor{darkcol}{\uppercase{#1}}}}\\[-4pt]
+		\textcolor{maincol}{ \rule{0.1\textwidth}{2pt} } \\
+	}
+}
+
+\newcommand{\cvskillset}[2]{
+    \textbf{#1}\ifthenelse{\isempty{#2}}{}{\\#2\\[8pt]}
+}
+
+\newcommand{\gpathesiscourses}[3]{
+        \ifthenelse{\isempty{#1}}{}{\textcolor{maincol}{CGPA:} #1}
+        \ifthenelse{\isempty{#2}}{}{\\\textcolor{maincol}{Relevant courses:} #2}
+        \ifthenelse{\isempty{#3}}{}{\\\textcolor{maincol}{Thesis:} #3}
+}
+
+
+\newcommand{\cvevent}[4]{
+    \textbf{#2}\hfill\textbf{#1}\textcolor{maincol}{\\\textbf{#3}}\ifthenelse{\isempty{#4}}{}{\\#4}
+}
+
+
+\usepackage{paracol}
+\usepackage[a4paper]{geometry}
+\geometry{top=0.6cm, bottom=0.6cm, left=0.6cm, right=0.6cm}
+
+\usepackage{fancyhdr}
+\pagestyle{empty}
+\usepackage{array}
+\newcommand{\mpwidth}{\linewidth-\fboxsep-\fboxsep}
+
+\setlength{\parindent}{0mm}
+\usepackage{graphicx}
+\usepackage{transparent}
+\usepackage{color}
+\definecolor{maincol}{RGB}{25,116,210}
+\definecolor{darkcol}{RGB}{70, 70, 70}
+\definecolor{lightcol}{RGB}{245,245,245}
+\usepackage[hidelinks]{hyperref}
+
+
+
+\begin{document}
+\columnratio{0.32}
+\setlength{\columnsep}{1cm}
+\setlength{\columnseprule}{4pt}
+\colseprulecolor{lightcol}
+
+\vspace*{-1cm}\hspace{-0.61cm}\fcolorbox{white}{darkcol}{\begin{minipage}[c][3cm][c]{\mpwidth + 1.2cm}
+	\begin {center}
+		\HUGE{ \textbf{ \textcolor{white}{ \uppercase{ Marko Čuljak } } } } \\[-24pt]
+		
+		\textcolor{white}{ \rule{0.1\textwidth}{1.25pt} } \\[4pt]
+		
+		\normalsize{\text{\textcolor{white} {
+		\icontext{\faIcon{mobile-alt}}{12}{+385 99 7804 780}{white}}} \iconemail{12}{mculyak@gmail.com}{mculyak@gmail.com}{white}
+		\icongithub{12}{maculjak}{maculjak}{white}
+		\iconlinkedin{\faIcon{linkedin}}{12}{culjakmarko}{culjakmarko}{white}
+		}
+	\end {center}
+\end{minipage}}\\[14pt]
+\begin{paracol}{2}
+
+\begin{leftcolumn}
+
+\cvsection{Skills}
+\cvskillset{Programming Languages}{Python, R, Java, C/C++, Julia, SQL}
+\cvskillset{Technologies}{NumPy, Pandas, scikit-learn, PyTorch, Tensorflow, matplotlib, seaborn, plotly, dplyr, ggplot2, git, \LaTeX}
+\cvskillset{Operating Systems}{Windows, Linux}
+\cvskillset{Languages}{Croatian, English}
+\cvskillset{Other}{Design patterns, Data analysis,\\ Leadership, Teaching}
+
+\cvsection{Interests}
+Natural Language Processing,\\ Computer Vision, Data Science, \\Deep Learning, Quantum Computing, Computational Neuroscience\\[8pt]
+
+\cvsection{Hobbies}
+\cvskillset{Athletics}{\textcolor{maincol}{National Championships:}\\ 5x first place, 12x second place, 20x third place\\\textcolor{maincol}{Croatian National Team:}\\ 4 appearences, third place at Balkan Junior Championships}
+\cvskillset{Chess, Pub Quizzes}{}
+\end{leftcolumn}
+\begin{rightcolumn}
+
+\cvsection{Work Experience}
+\cvevent{ March 2021 -- present}{Teaching Assistant}{Faculty of Electrical Engineering and Computing, University of Zagreb}{Assisting students enrolled in Artificial Intelligence course in doing the coursework.}\\[8pt]
+\cvevent{ July 2019 -- Aug 2019}{IT Security Intern}{Mercury Processing Services International}{As a part of 1-month long internship I created a Splunk App comprised of dashboards that visualize data extracted from logs created by various systems.}\\[8pt]
+\cvevent{ October 2018 -- Jan 2019}{Teaching Assistant}{Faculty of Electrical Engineering and Computing, University of Zagreb}{Assisted students enrolled in Electronics 1 course in doing the laboratory exercises}\\[8pt]
+
+\cvsection{Education}
+\cvevent{September 2020 --  July 2022}{M. Sc. Computer Science}{Faculty of Electrical Engineering and Computing, University of Zagreb}{\gpathesiscourses{4.52/5}{Advanced Algorithms and Data Structures, Machine Learning, Copmetitive Programming, Deep Learning, Text Analysis and Retrieval}{}}\\[8pt]
+\cvevent{September 2020}{Deep Learning Specialization}{Coursera}{\textcolor{maincol}{Credential ID:} KFJT8J3D4SLR}\\[8pt]
+\cvevent{September 2017 --  July 2020}{B. Sc. Computer Science}{Faculty of Electrican Engineering and Computing, University of Zagreb}{\gpathesiscourses{4.84/5}{Algorithms and Data Structures, Object Oriented\\Programming, Statistical Data Analysis, Design Patterns in Software Design}{Sentiment Analysis}}
+\end{rightcolumn}
+\end{paracol}
+
+\textcolor{lightcol}{\rule{\textwidth}{4pt}}\\
+
+\cvsection{Awards \& honors}
+\cvevent{ October 2019 -- June 2020}{National STEM Scholarship}{Croatian Ministry of Science and Education}{}\\[8pt]
+\cvevent{June 2017 -- May 2019}{Top Athlete of III. Category}{Croatian Olympic Committee}{Awarded for outstanding decathlon results on the national level.}\\[8pt]
+\cvevent{September 2016 -- August 2019}{The City of Zagreb High School Scholarship for Excellence}{The City of Zagreb}{}\\[8pt]
+
+\end{document}

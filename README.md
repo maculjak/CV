@@ -1,1 +1,2 @@
 # CV
+This repository contains my curriculum vitae. The CV is typeset in LaTeX and adapted from [this template](https://www.overleaf.com/latex/templates/jan-kusters-left-sidebar-cv/tmmnhrkcmpgv). You are free to use my CV as a template but keep in mind that the LaTeX code provided here is not commented and not structured well, so you might have an easier time adapting it from the already mentioned template.
