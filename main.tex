@@ -10,10 +10,7 @@
 \setbox0=\hbox{\includegraphics{#1}}
 \parbox{\wd0}{\box0}\endgroup}
 \usepackage{multicol}
-\tolerance=1
-\emergencystretch=\maxdimen
-\hyphenpenalty=10000
-\hbadness=10000
+
 
 \newcommand*{\vcenteredhbox}[1]{\begingroup
 \setbox0=\hbox{#1}\parbox{\wd0}{\box0}\endgroup}
@@ -93,7 +90,7 @@
 \setlength{\columnseprule}{4pt}
 \colseprulecolor{lightcol}
 
-\vspace*{-1cm}\hspace{-0.61cm}\fcolorbox{white}{darkcol}{\begin{minipage}[c][3cm][c]{\mpwidth + 1.22cm}
+\vspace*{-1cm}\hspace{-0.62cm}\fcolorbox{white}{darkcol}{\begin{minipage}[c][3cm][c]{\mpwidth + 1.22cm}
 	\begin {center}
 		\HUGE{ \textbf{ \textcolor{white}{ \uppercase{ Marko Čuljak } } } } \\[-24pt]
 		
@@ -107,6 +104,7 @@
 	\end {center}
 \end{minipage}}\\[14pt]
 \begin{paracol}{2}
+\emergencystretch=\maxdimen
 
 \begin{leftcolumn}
 
